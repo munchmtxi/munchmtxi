@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import userRoutes from './routes/userRoutes';
 import restaurantRoutes from './routes/restaurantRoutes'; // Import the restaurant routes
+import orderRoutes from './routes/orderRoutes'; // Import the order routes
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,6 +27,7 @@ db.connect((err) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api', restaurantRoutes); // Add the restaurant routes
+app.use('/api', orderRoutes); // Add the order routes
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
