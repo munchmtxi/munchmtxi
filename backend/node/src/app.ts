@@ -5,6 +5,7 @@ import mysql from 'mysql2';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import userRoutes from './routes/userRoutes';
+import restaurantRoutes from './routes/restaurantRoutes'; // Import the restaurant routes
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,6 +25,7 @@ db.connect((err) => {
 });
 
 app.use('/api/users', userRoutes);
+app.use('/api', restaurantRoutes); // Add the restaurant routes
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
